@@ -1,11 +1,15 @@
 package rvabackendg5.models;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
@@ -20,6 +24,10 @@ public class Dobavljac implements Serializable{
 	private String naziv;
 	private String adresa;
 	private String kontakt;
+	
+	@OneToMany(mappedBy = "dobavljac")
+	@JsonIgnore
+	private List<Porudzbina> porudzbine;
 	
 	private Dobavljac() {
 		

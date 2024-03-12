@@ -1,32 +1,36 @@
 package rvabackendg5.models;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 
-/*
- * Artikl klasa predstavlja jedanu Java Bean klasu, znači da se u klasi nalaze varijable
- * instanci i get i set metode za te varijable, da implementira Serializable interface i da ima,
- * u ovom slučaju implicitni, prazan konstruktor. Varijable instance u datoj klasi odgovaraju
- * kolonama u tabeli u bazi podataka.
- */
- 
-
-/*
- * @Entity predstavlja JPA anotaciju. Uloga anotacije je da stavi do znanja da se radi
- * o entitetu koji ima ID i koji se koristi kako bi se omogućila persistencija podataka.
- * Klasa as @Entity anotacijom predstavlja klasu koja se mapira u tabelu bazi podataka.
- */
-
-/*
-* @NamedQuery anotacija (konkretna anotacija je kreirana prilikom nastanka ovih JPA klasa)
-* je takođe JPA anotacija koja omogućava da određenom upitu, koji je pisan u Java Persistency
-* Querry Language, date naziv po kom ga kasnije možete referencirati.
-*/
+	/*
+	 * Artikl klasa predstavlja jedanu Java Bean klasu, znači da se u klasi nalaze varijable
+	 * instanci i get i set metode za te varijable, da implementira Serializable interface i da ima,
+	 * u ovom slučaju implicitni, prazan konstruktor. Varijable instance u datoj klasi odgovaraju
+	 * kolonama u tabeli u bazi podataka.
+	 */
+	 
+	
+	/*
+	 * @Entity predstavlja JPA anotaciju. Uloga anotacije je da stavi do znanja da se radi
+	 * o entitetu koji ima ID i koji se koristi kako bi se omogućila persistencija podataka.
+	 * Klasa as @Entity anotacijom predstavlja klasu koja se mapira u tabelu bazi podataka.
+	 */
+	
+	/*
+	* @NamedQuery anotacija (konkretna anotacija je kreirana prilikom nastanka ovih JPA klasa)
+	* je takođe JPA anotacija koja omogućava da određenom upitu, koji je pisan u Java Persistency
+	* Querry Language, date naziv po kom ga kasnije možete referencirati.
+	*/
 @Entity
 public class Artikl implements Serializable{
 	
@@ -58,6 +62,11 @@ public class Artikl implements Serializable{
 	private int id;
 	private String naziv;
 	private String proizvodjac;
+	
+	// bidirekciona veza (drugi element stranog kljuca)
+	@OneToMany(mappedBy = "artikl")
+	@JsonIgnore
+	private List<StavkaPorudzbine> stavke;
 	
 	public Artikl() {
 		

@@ -2,6 +2,9 @@ package rvabackendg5.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
@@ -26,9 +30,13 @@ public class Porudzbina implements Serializable{
 	private double iznos;
 	private boolean placeno;
 	
-	@ManyToOne //strani kljuc
+	@ManyToOne // strani kljuc
 	@JoinColumn(name = "dobavljac")
 	private Dobavljac dobavljac;
+	
+	@OneToMany(mappedBy = "porudzbina")
+	@JsonIgnore
+	private List<StavkaPorudzbine> stavke;
 	
 	public Porudzbina() {
 		
