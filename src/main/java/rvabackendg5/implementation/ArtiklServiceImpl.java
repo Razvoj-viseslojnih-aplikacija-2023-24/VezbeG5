@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import rvabackendg5.models.Artikl;
 import rvabackendg5.repository.ArtiklRepository;
 import rvabackendg5.services.ArtiklService;
 
+@Component
 public class ArtiklServiceImpl implements ArtiklService {
 	
 	/*
@@ -32,6 +34,10 @@ public class ArtiklServiceImpl implements ArtiklService {
 	@Override
 	public boolean existsById(int id) {
 		return repo.existsById(id);
+	}
+	
+	public Optional<Artikl> findById(int id) {
+		return repo.findById(id);
 	}
 
 	@Override

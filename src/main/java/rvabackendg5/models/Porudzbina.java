@@ -99,6 +99,14 @@ public class Porudzbina implements Serializable{
 	public void setDobavljac(Dobavljac dobavljac) {
 		this.dobavljac = dobavljac;
 	}
+
+	public List<StavkaPorudzbine> getStavke() {
+		return stavke;
+	}
+
+	public void setStavke(List<StavkaPorudzbine> stavke) {
+		this.stavke = stavke;
+	}
 	
 	
 	

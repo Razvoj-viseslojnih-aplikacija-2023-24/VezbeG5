@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import rvabackendg5.models.Dobavljac;
 import rvabackendg5.repository.DobavljacRepository;
 import rvabackendg5.services.DobavljacService;
 
+@Component
 public class DobavljacServiceImpl implements DobavljacService {
 	
 	@Autowired
@@ -46,7 +48,12 @@ public class DobavljacServiceImpl implements DobavljacService {
 
 	@Override
 	public List<Dobavljac> getDobavljacsByAdresa(String adresa) {
-		return repo.findByAdresaContainingIngoreCase(adresa);
+		return repo.findByAdresaContainingIgnoreCase(adresa);
+	}
+
+	@Override
+	public Optional<Dobavljac> findById(int id) {
+		return repo.findById(id);
 	}
 
 }

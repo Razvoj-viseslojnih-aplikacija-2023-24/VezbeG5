@@ -71,6 +71,15 @@ public class Dobavljac implements Serializable{
 	public void setKontakt(String kontakt) {
 		this.kontakt = kontakt;
 	}
+
+	public List<Porudzbina> getPorudzbine() {
+		return porudzbine;
+	}
+
+	public void setPorudzbine(List<Porudzbina> porudzbine) {
+		this.porudzbine = porudzbine;
+	}
+	
 	
 	
 }

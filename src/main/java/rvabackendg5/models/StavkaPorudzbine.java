@@ -105,5 +105,4 @@ public class StavkaPorudzbine implements Serializable {
 	}
 	
 	
-	
 }

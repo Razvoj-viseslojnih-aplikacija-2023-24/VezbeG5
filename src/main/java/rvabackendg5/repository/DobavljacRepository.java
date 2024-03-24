@@ -8,5 +8,5 @@ import rvabackendg5.models.Dobavljac;
 
 public interface DobavljacRepository extends JpaRepository<Dobavljac, Integer>{
 
-	List<Dobavljac> findByAdresaContainingIngoreCase(String adresa);
+	List<Dobavljac> findByAdresaContainingIgnoreCase(String adresa);
 }
