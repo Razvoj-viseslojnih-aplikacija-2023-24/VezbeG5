@@ -57,7 +57,7 @@ public class PorudzbinaServiceImpl implements PorudzbinaService {
 	}
 
 	@Override
-	public List<Porudzbina> getForeignKey(Dobavljac dobavljac) {
+	public List<Porudzbina> getByForeignKey(Dobavljac dobavljac) {
 		return repo.findByDobavljac(dobavljac);
 	}
 
