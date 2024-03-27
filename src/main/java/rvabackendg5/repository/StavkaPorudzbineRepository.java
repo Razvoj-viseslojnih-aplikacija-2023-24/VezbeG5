@@ -10,7 +10,7 @@ import rvabackendg5.models.StavkaPorudzbine;
 
 public interface StavkaPorudzbineRepository extends JpaRepository<StavkaPorudzbine, Integer>{
 
-	List<StavkaPorudzbine> findByCenaGreaterThanOrderByCena(double cena);
+	List<StavkaPorudzbine> findByCenaLessThanOrderByCena(double cena);
 	List<StavkaPorudzbine> findByArtikl(Artikl artikl);
 	List<StavkaPorudzbine> findByPorudzbina(Porudzbina porudzbina);
 }

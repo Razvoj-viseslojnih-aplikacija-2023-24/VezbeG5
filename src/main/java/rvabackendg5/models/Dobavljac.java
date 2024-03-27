@@ -29,11 +29,11 @@ public class Dobavljac implements Serializable{
 	@JsonIgnore
 	private List<Porudzbina> porudzbine;
 	
-	private Dobavljac() {
+	public Dobavljac() {
 		
 	}
 	
-	private Dobavljac(int id, String naziv, String adresa, String kontakt) {
+	public Dobavljac(int id, String naziv, String adresa, String kontakt) {
 		this.id = id;
 		this.naziv = naziv;
 		this.adresa = adresa;

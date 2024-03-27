@@ -89,7 +89,7 @@ public class StavkaPorudzbineController {
 				" deleted because it does not exist!");
 	}
 	
-	@GetMapping("/stavka-porudzbine/artikl/{foreignKey}")
+	@GetMapping("/stavkaPorudzbine/artikl/{foreignKey}")
 	public ResponseEntity<?> getStavkeByArtikl(@PathVariable int foreignKey){
 		Optional<Artikl> artikl = artiklService.findById(foreignKey);
 		if(artikl.isPresent()) {
@@ -104,7 +104,7 @@ public class StavkaPorudzbineController {
 		return ResponseEntity.status(400).body("Invalid foreign key!");
 	}
 	
-	@GetMapping("/stavka-porudzbine/porudzbina/{foreignKey}")
+	@GetMapping("/stavkaPorudzbine/porudzbina/{foreignKey}")
 	public ResponseEntity<?> getStavkeByPorudzbina(@PathVariable int foreignKey){
 		Optional<Porudzbina> porudzbina = porudzbinaService.findById(foreignKey);
 		if(porudzbina.isPresent()) {

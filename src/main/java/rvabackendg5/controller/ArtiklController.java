@@ -24,6 +24,18 @@ public class ArtiklController {
 	@Autowired
 	private ArtiklService service;
 	
+    /*
+     * HTTP GET je jedna od HTTP metoda koja je analogna opciji READ iz CRUD
+     * operacija. Anotacija @GetMapping se koristi kako bi se mapirao HTTP GET
+     * zahtev. Predstavlja skraćenu verziju metode @RequestMapping(method =
+     * RequestMethod.GET) U konkretnom slučaju HTTP GET zahtevi (a to je npr.
+     * svako učitavanje stranice u browser-u) upućeni na adresu
+     * localhost:8083/artikl biće prosleđeni ovoj metodi.
+     *
+     * Poziv metode artiklRepository.findAll() će vratiti kolekciju koja sadrži
+     * sve artikala koji će potom u browseru biti prikazani u JSON formatu
+     */
+	
 	@GetMapping("/artikl")
 	public List<Artikl> getAllArtikls(){
 		return service.getAll();

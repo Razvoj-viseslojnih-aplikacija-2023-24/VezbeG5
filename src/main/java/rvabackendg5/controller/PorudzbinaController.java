@@ -44,8 +44,8 @@ public class PorudzbinaController {
 		return ResponseEntity.status(404).body("Resource with requested ID: " + id + " does not exist!");
 	}
 	
-	@GetMapping("/porudzbina/naziv/{placeno}")
-	public ResponseEntity<?> getPorudzbinasByNaziv(@PathVariable boolean placeno){
+	@GetMapping("/porudzbina/placeno/{placeno}")
+	public ResponseEntity<?> getPorudzbinasByPlaceno(@PathVariable boolean placeno){
 		List<Porudzbina> porudzbinai = service.getProudzbinasByPlaceno(placeno);
 		if(porudzbinai.isEmpty()) {
 			return ResponseEntity.status(404).body("Resources with Placeno: " + placeno + " do not exist!");
@@ -83,7 +83,7 @@ public class PorudzbinaController {
 				" deleted because it does not exist!");
 	}
 	
-	@GetMapping("/porudzbin/dobavljac/{foreignKey}")
+	@GetMapping("/porudzbina/dobavljac/{foreignKey}")
 	public ResponseEntity<?> getPorudzbineByDobavljac(@PathVariable int foreignKey){
 		Optional<Dobavljac> dobavljac = dobavljacService.findById(foreignKey);
 		if(dobavljac.isPresent()) {

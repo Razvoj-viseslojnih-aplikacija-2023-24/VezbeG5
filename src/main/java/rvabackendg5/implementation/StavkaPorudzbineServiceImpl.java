@@ -54,7 +54,7 @@ public class StavkaPorudzbineServiceImpl implements StavkaPorudzbineService{
 
 	@Override
 	public List<StavkaPorudzbine> getStavkasByCenaLessThan(double cena) {
-		return repo.findByCenaGreaterThanOrderByCena(cena);
+		return repo.findByCenaLessThanOrderByCena(cena);
 	}
 
 	@Override
