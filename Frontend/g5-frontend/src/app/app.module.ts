@@ -10,6 +10,7 @@ import { StavkaPorudzbineComponent } from './main/stavka-porudzbine/stavka-porud
 import { HomeComponent } from './utility/home/home.component';
 import { AboutComponent } from './utility/about/about.component';
 import { AuthorComponent } from './utility/author/author.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -17,6 +18,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { ArtiklDialogComponent } from './dialogs/artikl-dialog/artikl-dialog.component';
+import { DobavljacDialogComponent } from './dialogs/dobavljac-dialog/dobavljac-dialog.component';
+import { PorudzbinaDialogComponent } from './dialogs/porudzbina-dialog/porudzbina-dialog.component';
+import { StavkaPorudzbineDialogComponent } from './dialogs/stavka-porudzbine-dialog/stavka-porudzbine-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +40,11 @@ import {MatButtonModule} from '@angular/material/button';
     StavkaPorudzbineComponent,
     HomeComponent,
     AboutComponent,
-    AuthorComponent
+    AuthorComponent,
+    ArtiklDialogComponent,
+    DobavljacDialogComponent,
+    PorudzbinaDialogComponent,
+    StavkaPorudzbineDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +55,15 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
