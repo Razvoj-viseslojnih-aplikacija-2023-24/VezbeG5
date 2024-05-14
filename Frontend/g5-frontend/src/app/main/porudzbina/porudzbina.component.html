@@ -7,7 +7,7 @@
 
     <ng-container matColumnDef="datum">
       <mat-header-cell *matHeaderCellDef> Datum </mat-header-cell>
-      <mat-cell *matCellDef="let row">  {{row.datum }} </mat-cell>
+      <mat-cell *matCellDef="let row">  {{row.datum | date:'dd.MM.yyyy' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="id">
@@ -17,7 +17,7 @@
 
     <ng-container matColumnDef="isporuceno">
       <mat-header-cell *matHeaderCellDef> Isporuceno </mat-header-cell>
-      <mat-cell *matCellDef="let row">  {{row.isporuceno }} </mat-cell>
+      <mat-cell *matCellDef="let row">  {{row.isporuceno | date:'dd.MM.yyyy' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="iznos">
@@ -27,7 +27,7 @@
 
     <ng-container matColumnDef="placeno">
       <mat-header-cell *matHeaderCellDef>Placeno</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.placeno }}</mat-cell>
+      <mat-cell [style.color]="row.placeno ? 'Green' : 'Red'" *matCellDef="let row">{{ row.placeno ? 'Da' : 'Ne' }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="dobavljac">
@@ -38,7 +38,7 @@
         <!-- Action Buttons -->
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef>
-            <button mat-icon-button color="accent" >
+            <button mat-icon-button color="accent" (click)="openDialog(1)">
               <mat-icon>add</mat-icon>
             </button>
           </mat-header-cell>

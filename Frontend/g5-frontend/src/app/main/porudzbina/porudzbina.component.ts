@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { PorudzbinaDialogComponent } from 'src/app/dialogs/porudzbina-dialog/porudzbina-dialog.component';
+import { Dobavljac } from 'src/app/models/dobavljac';
 import { Porudzbina } from 'src/app/models/porudzbina';
 import { PorudzbinaService } from 'src/app/services/porudzbina.service';
 
@@ -14,7 +17,7 @@ export class PorudzbinaComponent implements OnInit, OnDestroy{
   dataSource!:MatTableDataSource<Porudzbina>;
   subscription!:Subscription;
 
-  constructor(private service:PorudzbinaService) {}
+  constructor(private service:PorudzbinaService, public dialog:MatDialog) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -33,6 +36,13 @@ export class PorudzbinaComponent implements OnInit, OnDestroy{
     (error:Error) => {
         console.log(error.name + ' ' + error.message);
     }
+  }
+
+  public openDialog(flag:number, id?:number, datum?:Date, isporuceno?:Date, iznos?:number,
+    placeno?:boolean, dobavljac?:Dobavljac)
+  {
+    const dialogRef = this.dialog.open(PorudzbinaDialogComponent, {data: {id, datum, isporuceno, iznos, placeno, dobavljac}});
+    dialogRef.componentInstance.flag = flag;
   }
 
 }
