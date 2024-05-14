@@ -43,6 +43,13 @@ export class PorudzbinaComponent implements OnInit, OnDestroy{
   {
     const dialogRef = this.dialog.open(PorudzbinaDialogComponent, {data: {id, datum, isporuceno, iznos, placeno, dobavljac}});
     dialogRef.componentInstance.flag = flag;
+    dialogRef.afterClosed().subscribe(
+      (result) => {
+        if(result == 1){
+          this.loadData();
+        }
+      }
+    )
   }
 
 }

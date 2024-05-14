@@ -47,4 +47,34 @@ public add() {
   }
 }
 
+public update() {
+  this.service.updatePorudzbina(this.data).subscribe(
+    (data) => {
+      this.snackBar.open(`Porudžbina sa ID: ${data.id} je uspešno ažurirana`, `U redu`, {duration:2500});
+    }
+  ),
+  (error:Error) => {
+    console.log(error.name + ' ' + error.message);
+    this.snackBar.open(`Neuspešno ažuriranje`, `Zatvori`, {duration:2500});
+  }
+}
+
+public delete() {
+  this.service.deletePorudzbine(this.data.id).subscribe(
+    (data) => {
+      this.snackBar.open(`Porudžbina sa ID: ${data.id} je uspešno obrisana`, `U redu`, {duration:2500});
+    }
+  ),
+  (error:Error) => {
+    console.log(error.name + ' ' + error.message);
+    this.snackBar.open(`Neuspešno brisanje`, `Zatvori`, {duration:2500});
+  }
+}
+
+public cancel() {
+  this.dialogRef.close();
+  this.snackBar.open(`Odustali ste od izmena!`, `Zatvori`, {duration:2500});
+}
+
+
 }

@@ -30,6 +30,10 @@ import { DobavljacDialogComponent } from './dialogs/dobavljac-dialog/dobavljac-d
 import { PorudzbinaDialogComponent } from './dialogs/porudzbina-dialog/porudzbina-dialog.component';
 import { StavkaPorudzbineDialogComponent } from './dialogs/stavka-porudzbine-dialog/stavka-porudzbine-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,10 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSelectModule,
     HttpClientModule
   ],
   providers: [],
