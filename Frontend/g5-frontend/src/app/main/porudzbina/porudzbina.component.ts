@@ -16,6 +16,7 @@ export class PorudzbinaComponent implements OnInit, OnDestroy{
   displayedColumns = ['id', 'datum', 'isporuceno', 'iznos', 'placeno', 'dobavljac', 'actions'];
   dataSource!:MatTableDataSource<Porudzbina>;
   subscription!:Subscription;
+  parentSelectedPorudzbina!:Porudzbina;
 
   constructor(private service:PorudzbinaService, public dialog:MatDialog) {}
 
@@ -25,6 +26,10 @@ export class PorudzbinaComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.loadData();
+  }
+
+  public selectRow(row:Porudzbina) {
+    this.parentSelectedPorudzbina = row;
   }
 
   public loadData(){
